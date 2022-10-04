@@ -1,0 +1,30 @@
+[project]
+name = "somenft"
+authors = []
+description = ""
+telemetry = false
+requirements = []
+boot_contracts = ["pox", "costs-v2", "bns"]
+
+[project.cache_location]
+path = ".requirements"
+
+[contracts.sip009-nft-trait]
+path = "contracts/sip009-nft-trait.clar"
+
+[contracts.somenft]
+path = "contracts/somenft.clar"
+depends_on = ["sip009-nft-trait"]
+
+[repl]
+costs_version = 2
+parser_version = 2
+
+[repl.analysis]
+passes = ["check_checker"]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
